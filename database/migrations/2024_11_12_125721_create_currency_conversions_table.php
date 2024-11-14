@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('conversion_date');
             $table->timestamps();
 
-            $table->index(['from_currency', 'to_currency', 'conversion_date']);
+            $table->index(['from_currency', 'to_currency', 'conversion_date'], 'currency_conversion_index');
         });
     }
 
