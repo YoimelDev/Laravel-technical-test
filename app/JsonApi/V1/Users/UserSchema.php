@@ -12,6 +12,8 @@ use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Filters\WhereIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
+use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
+use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
 
 class UserSchema extends Schema
 {
@@ -39,6 +41,8 @@ class UserSchema extends Schema
             DateTime::make('email_verified_at'),
             DateTime::make('createdAt')->sortable()->readOnly(),
             DateTime::make('updatedAt')->sortable()->readOnly(),
+            HasMany::make('roleChangeRequests'),
+            HasOne::make('company'),
         ];
     }
 

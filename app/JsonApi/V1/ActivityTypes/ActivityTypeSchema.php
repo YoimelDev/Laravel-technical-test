@@ -1,19 +1,19 @@
 <?php
 
-namespace App\JsonApi\V1\Rolechangerequests;
+namespace App\JsonApi\V1\ActivityTypes;
 
-use App\Models\Rolechangerequest;
+use App\Models\Activitytype;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
-use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
+use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Filters\WhereIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
 
-class RolechangerequestSchema extends Schema
+class ActivityTypeSchema extends Schema
 {
 
     /**
@@ -21,7 +21,7 @@ class RolechangerequestSchema extends Schema
      *
      * @var string
      */
-    public static string $model = Rolechangerequest::class;
+    public static string $model = Activitytype::class;
 
     /**
      * Get the resource fields.
@@ -32,15 +32,11 @@ class RolechangerequestSchema extends Schema
     {
         return [
             ID::make(),
-            Str::make('requested_role'),
-            Str::make('status'),
-            Str::make('reason'),
-            Str::make('admin_notes'),
-            DateTime::make('processed_at'),
-            DateTime::make('created_at')->sortable()->readOnly(),
-            DateTime::make('updated_at')->sortable()->readOnly(),
-            BelongsTo::make('user'),
-            BelongsTo::make('processor')->type('users'),
+            Str::make('name'),
+            Str::make('description'),
+            BelongsToMany::make('companies'),
+            DateTime::make('createdAt')->sortable()->readOnly(),
+            DateTime::make('updatedAt')->sortable()->readOnly(),
         ];
     }
 
@@ -53,8 +49,7 @@ class RolechangerequestSchema extends Schema
     {
         return [
             WhereIdIn::make($this),
-            WhereIn::make('requested_role'),
-            WhereIn::make('status'),
+            WhereIn::make('name'),
         ];
     }
 

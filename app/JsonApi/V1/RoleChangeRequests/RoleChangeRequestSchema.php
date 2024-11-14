@@ -1,19 +1,19 @@
 <?php
 
-namespace App\JsonApi\V1\Activitytypes;
+namespace App\JsonApi\V1\RoleChangeRequests;
 
-use App\Models\Activitytype;
+use App\Models\Rolechangerequest;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
-use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
+use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Filters\WhereIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
 
-class ActivitytypeSchema extends Schema
+class RoleChangeRequestSchema extends Schema
 {
 
     /**
@@ -21,7 +21,7 @@ class ActivitytypeSchema extends Schema
      *
      * @var string
      */
-    public static string $model = Activitytype::class;
+    public static string $model = Rolechangerequest::class;
 
     /**
      * Get the resource fields.
@@ -32,11 +32,15 @@ class ActivitytypeSchema extends Schema
     {
         return [
             ID::make(),
-            Str::make('name'),
-            Str::make('description'),
-            BelongsToMany::make('companies'),
-            DateTime::make('createdAt')->sortable()->readOnly(),
-            DateTime::make('updatedAt')->sortable()->readOnly(),
+            Str::make('requested_role'),
+            Str::make('status'),
+            Str::make('reason'),
+            Str::make('admin_notes'),
+            DateTime::make('processed_at'),
+            DateTime::make('created_at')->sortable()->readOnly(),
+            DateTime::make('updated_at')->sortable()->readOnly(),
+            BelongsTo::make('user'),
+            BelongsTo::make('processor')->type('users'),
         ];
     }
 
@@ -49,7 +53,8 @@ class ActivitytypeSchema extends Schema
     {
         return [
             WhereIdIn::make($this),
-            WhereIn::make('name'),
+            WhereIn::make('requested_role'),
+            WhereIn::make('status'),
         ];
     }
 
