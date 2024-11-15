@@ -9,10 +9,10 @@ use App\Http\Controllers\Api\V1\RoleChangeRequestController;
 use App\Http\Controllers\Api\V1\CurrencyConversionController;
 
 // Rutas públicas
-// Route::prefix('v1')->group(function () {
-//     Route::post('/login', [LoginController::class, 'login']);
-//     Route::post('/register', [RegisterController::class, 'register']);
-// });
+Route::prefix('v1')->group(function () {
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register');
+});
 
 // Rutas JSON:API autenticadas
 JsonApiRoute::server('v1')
@@ -44,10 +44,10 @@ JsonApiRoute::server('v1')
     });
 
 // Rutas personalizadas autenticadas
-// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-//     Route::post('/role-requests', [RoleChangeRequestController::class, 'store']);
-//     Route::patch('/role-requests/{request}/process', [RoleChangeRequestController::class, 'process']);
+Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+    Route::post('/role-requests', [RoleChangeRequestController::class, 'store']);
+    Route::patch('/role-requests/{request}/process', [RoleChangeRequestController::class, 'process']);
     
-//     Route::post('/currency/convert', [CurrencyConversionController::class, 'convert']);
-//     Route::get('/currency/history', [CurrencyConversionController::class, 'history']);
-// });
+    Route::post('/currency/convert', [CurrencyConversionController::class, 'convert']);
+    Route::get('/currency/history', [CurrencyConversionController::class, 'history']);
+});
