@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\RoleChangeRequest;
 
+use App\Enums\RoleType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -12,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +24,10 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'requested_role' => ['required', 'string', Rule::in(['company_owner', 'admin'])],
+            'requested_role' => ['required', 'string', Rule::in([
+                RoleType::BUSINESS_OWNER->value,
+                RoleType::ADMIN->value
+            ])],
             'reason' => ['required', 'string', 'max:1000'],
         ];
     }

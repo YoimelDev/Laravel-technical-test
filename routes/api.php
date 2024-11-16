@@ -44,9 +44,9 @@ JsonApiRoute::server('v1')
     });
 
 // Rutas personalizadas autenticadas
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
     Route::post('/role-requests', [RoleChangeRequestController::class, 'store']);
-    Route::patch('/role-requests/{request}/process', [RoleChangeRequestController::class, 'process']);
+    Route::patch('/role-requests/{roleChangeRequest}/process', [RoleChangeRequestController::class, 'process']);
     
     Route::post('/currency/convert', [CurrencyConversionController::class, 'convert']);
     Route::get('/currency/history', [CurrencyConversionController::class, 'history']);

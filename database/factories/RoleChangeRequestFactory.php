@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\RoleChangeRequestStatus;
+use App\Enums\RoleType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,11 +20,13 @@ class RoleChangeRequestFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => $this->faker->randomNumber(),
-            'role_id' => $this->faker->randomNumber(),
-            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'user_id' => User::factory(),
+            'requested_role' => fake()->randomElement(RoleType::cases()),
+            'status' => fake()->randomElement(RoleChangeRequestStatus::cases()),
+            'reason' => fake()->sentence(),
+            'admin_notes' => fake()->optional()->sentence(),
+            'processed_at' => fake()->optional()->dateTime(),
+            'processed_by' => fake()->optional()->randomElement([null, User::factory()]),
         ];
     }
 }

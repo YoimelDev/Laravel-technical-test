@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'fixer' => [
+        'key' => env('FIXER_API_KEY'),
+        'url' => env('FIXER_API_URL', 'https://data.fixer.io/api'),
+    ],
+
 ];

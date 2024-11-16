@@ -2,7 +2,7 @@
 
 namespace App\JsonApi\V1\ActivityTypes;
 
-use App\Models\Activitytype;
+use App\Models\ActivityType;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\DateTime;
 use LaravelJsonApi\Eloquent\Fields\ID;
@@ -21,7 +21,7 @@ class ActivityTypeSchema extends Schema
      *
      * @var string
      */
-    public static string $model = Activitytype::class;
+    public static string $model = ActivityType::class;
 
     /**
      * Get the resource fields.
@@ -49,7 +49,7 @@ class ActivityTypeSchema extends Schema
     {
         return [
             WhereIdIn::make($this),
-            WhereIn::make('name'),
+            WhereIn::make('name')->delimiter(','),
         ];
     }
 
