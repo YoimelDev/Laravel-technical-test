@@ -17,10 +17,9 @@ class HistoricalRateFactory extends Factory
     public function definition(): array
     {
         return [
-            'currency_from' => $this->faker->currencyCode,
-            'currency_to' => $this->faker->currencyCode,
-            'rate' => $this->faker->randomFloat(4, 0, 100),
-            'date' => $this->faker->date(),
+            'rate_date' => $this->faker->date(),
+            'currency' => $this->faker->currencyCode,
+            'rate' => $this->faker->randomFloat(8, 0, 100),
         ];
     }
 }

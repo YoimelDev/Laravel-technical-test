@@ -18,6 +18,6 @@ class HistoricalRate extends Model
 
     protected $casts = [
         'rate_date' => 'date',
-        'rate' => 'decimal:6',
+        'rate' => 'decimal:8',
     ];
 }

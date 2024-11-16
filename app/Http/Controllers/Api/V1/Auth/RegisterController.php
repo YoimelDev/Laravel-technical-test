@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 
@@ -29,6 +30,8 @@ class RegisterController extends Controller
             return $user;
         });
 
+        $user->notify(new WelcomeNotification());
+        
         $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json([

@@ -4,22 +4,18 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CurrencyConversion>
- */
 class CurrencyConversionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            'currency_from' => $this->faker->currencyCode,
-            'currency_to' => $this->faker->currencyCode,
-            'rate' => $this->faker->randomFloat(4, 0, 100),
+            'from_currency' => $this->faker->currencyCode(),
+            'to_currency' => $this->faker->currencyCode(),
+            'amount' => $this->faker->randomFloat(2, 1, 1000),
+            'converted_amount' => $this->faker->randomFloat(2, 1, 1000),
+            'rate' => $this->faker->randomFloat(4, 0.1, 10),
+            'conversion_date' => $this->faker->dateTime(),
+            'user_id' => null,
         ];
     }
 }

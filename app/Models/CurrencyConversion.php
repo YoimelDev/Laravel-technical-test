@@ -21,9 +21,9 @@ class CurrencyConversion extends Model
     ];
 
     protected $casts = [
-        'amount' => 'decimal:6',
-        'converted_amount' => 'decimal:6',
-        'rate' => 'decimal:6',
+        'amount' => 'float',
+        'converted_amount' => 'float',
+        'rate' => 'float',
         'conversion_date' => 'datetime',
     ];
 

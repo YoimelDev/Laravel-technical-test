@@ -16,6 +16,8 @@ class ContactInformation extends Model
         'city',
         'country',
         'postal_code',
+        'contactable_id',
+        'contactable_type'
     ];
 
     public function contactable()

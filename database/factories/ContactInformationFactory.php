@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,8 @@ class ContactInformationFactory extends Factory
             'city' => $this->faker->city,
             'country' => $this->faker->country,
             'postal_code' => $this->faker->postcode,
+            'contactable_type' => User::class,
+            'contactable_id' => null
         ];
     }
 }
