@@ -10,7 +10,7 @@ use App\Enums\RoleType;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CompanyManagementTest extends TestCase
+class CompanyFeatureTest extends TestCase
 {
     use RefreshDatabase;
 
