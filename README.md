@@ -110,6 +110,14 @@ Content-Type: application/vnd.api+json
 ./vendor/bin/sail test --coverage
 ```
 
+## Usuario de Prueba
+
+- Admin:
+```
+email: super@admin.com
+password: password
+```
+
 ## Notas de Desarrollo
 
 - Los usuarios nuevos se registran con rol 'basic'
