@@ -1,0 +1,1777 @@
+{
+	"info": {
+		"_postman_id": "d1c19681-7e1b-43ba-b98e-49fcfe141c46",
+		"name": "Atrinium API",
+		"description": "Colección de endpoints para la API de Atrinium",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26854332"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"last_name\": \"Lastname\",\n    \"email\": \"test1@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\",\n    \"contact_information\": {\n        \"phone\": \"+34612345678\",\n        \"address\": \"Test Address\",\n        \"city\": \"Madrid\",\n        \"country\": \"España\",\n        \"postal_code\": \"28001\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"token\", pm.response.json().data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"super@admin.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[email]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[last_name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[hasCompany]",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/api/v1/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "filter[name]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[email]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[last_name]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[hasCompany]",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Nov 2024 01:14:24 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": [\n        {\n            \"type\": \"users\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"Super\",\n                \"last_name\": \"Admin\",\n                \"email\": \"super@admin.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/1/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/1/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/1/company\",\n                        \"self\": \"http://localhost/api/v1/users/1/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/1\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"name\": \"Dr. Dave Kling V\",\n                \"last_name\": \"Doyle\",\n                \"email\": \"dkuvalis@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/2/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/2/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/2/company\",\n                        \"self\": \"http://localhost/api/v1/users/2/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/2\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"name\": \"Grady Turcotte\",\n                \"last_name\": \"Stanton\",\n                \"email\": \"ohettinger@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/3/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/3/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/3/company\",\n                        \"self\": \"http://localhost/api/v1/users/3/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/3\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"name\": \"Dr. Norene Schneider I\",\n                \"last_name\": \"Lubowitz\",\n                \"email\": \"leatha06@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/4/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/4/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/4/company\",\n                        \"self\": \"http://localhost/api/v1/users/4/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/4\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"name\": \"Felicia Gottlieb\",\n                \"last_name\": \"Robel\",\n                \"email\": \"pfay@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/5/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/5/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/5/company\",\n                        \"self\": \"http://localhost/api/v1/users/5/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/5\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"6\",\n            \"attributes\": {\n                \"name\": \"Armand Toy\",\n                \"last_name\": \"Grant\",\n                \"email\": \"gschoen@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/6/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/6/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/6/company\",\n                        \"self\": \"http://localhost/api/v1/users/6/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/6\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"name\": \"Ms. Noemie Cassin IV\",\n                \"last_name\": \"Jacobs\",\n                \"email\": \"sheila.cummerata@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/7/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/7/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/7/company\",\n                        \"self\": \"http://localhost/api/v1/users/7/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/7\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"8\",\n            \"attributes\": {\n                \"name\": \"Mrs. Anahi Wisoky\",\n                \"last_name\": \"Lebsack\",\n                \"email\": \"evert57@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/8/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/8/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/8/company\",\n                        \"self\": \"http://localhost/api/v1/users/8/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/8\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"9\",\n            \"attributes\": {\n                \"name\": \"Prof. Kallie Simonis II\",\n                \"last_name\": \"Schneider\",\n                \"email\": \"lkrajcik@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/9/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/9/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/9/company\",\n                        \"self\": \"http://localhost/api/v1/users/9/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/9\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"10\",\n            \"attributes\": {\n                \"name\": \"Bettie Lakin\",\n                \"last_name\": \"Hilpert\",\n                \"email\": \"vboehm@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/10/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/10/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/10/company\",\n                        \"self\": \"http://localhost/api/v1/users/10/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/10\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"11\",\n            \"attributes\": {\n                \"name\": \"Alexander Conn\",\n                \"last_name\": \"Rippin\",\n                \"email\": \"stark.norene@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/11/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/11/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/11/company\",\n                        \"self\": \"http://localhost/api/v1/users/11/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/11\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"12\",\n            \"attributes\": {\n                \"name\": \"Wilfrid Aufderhar\",\n                \"last_name\": \"Hahn\",\n                \"email\": \"hermina49@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/12/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/12/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/12/company\",\n                        \"self\": \"http://localhost/api/v1/users/12/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/12\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"13\",\n            \"attributes\": {\n                \"name\": \"Prof. Beaulah Kunde\",\n                \"last_name\": \"Spencer\",\n                \"email\": \"brogahn@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/13/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/13/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/13/company\",\n                        \"self\": \"http://localhost/api/v1/users/13/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/13\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"14\",\n            \"attributes\": {\n                \"name\": \"Madonna Kerluke\",\n                \"last_name\": \"Dickinson\",\n                \"email\": \"meta.boyer@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/14/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/14/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/14/company\",\n                        \"self\": \"http://localhost/api/v1/users/14/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/14\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"15\",\n            \"attributes\": {\n                \"name\": \"Alexie Ziemann\",\n                \"last_name\": \"Hettinger\",\n                \"email\": \"leda.wyman@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/15/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/15/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/15/company\",\n                        \"self\": \"http://localhost/api/v1/users/15/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/15\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"16\",\n            \"attributes\": {\n                \"name\": \"Aniyah Purdy\",\n                \"last_name\": \"Toy\",\n                \"email\": \"haag.felipe@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/16/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/16/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/16/company\",\n                        \"self\": \"http://localhost/api/v1/users/16/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/16\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"17\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-14T03:33:56.000000Z\",\n                \"updatedAt\": \"2024-11-14T03:33:56.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/17/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/17/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/17/company\",\n                        \"self\": \"http://localhost/api/v1/users/17/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/17\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"18\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test-555@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-14T04:27:39.000000Z\",\n                \"updatedAt\": \"2024-11-14T04:27:39.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/18/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/18/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/18/company\",\n                        \"self\": \"http://localhost/api/v1/users/18/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/18\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"19\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test1@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-16T03:33:08.000000Z\",\n                \"updatedAt\": \"2024-11-16T03:33:08.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/19/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/19/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/19/company\",\n                        \"self\": \"http://localhost/api/v1/users/19/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/19\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"20\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test2@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-16T23:58:42.000000Z\",\n                \"updatedAt\": \"2024-11-16T23:58:42.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/20/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/20/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/20/company\",\n                        \"self\": \"http://localhost/api/v1/users/20/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/20\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Create new company",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"company_id\", pm.response.json().data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "ICqlRqZGEAixcaGH6EFsANXRfLm3H6CxsvCacBJjfce2e94f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"type\": \"companies\",\r\n        \"attributes\": {\r\n            \"name\": \"Test Company\",\r\n            \"document_number\": \"12345678\",\r\n            \"document_type\": \"dni\",\r\n            \"status\": \"active\"\r\n        },\r\n        \"relationships\": {\r\n            \"user\": {\r\n                \"data\": {\r\n                    \"type\": \"users\",\r\n                    \"id\": \"1\"\r\n                }\r\n            },\r\n            \"activityTypes\": {\r\n                \"data\": [\r\n                    {\r\n                        \"type\": \"activity-types\",\r\n                        \"id\": \"1\"\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create company",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"companies\",\r\n        \"attributes\": {\r\n            \"name\": \"Test Company\",\r\n            \"document_number\": \"12345678\",\r\n            \"document_type\": \"dni\",\r\n            \"status\": \"active\"\r\n        },\r\n        \"relationships\": {\r\n            \"user\": {\r\n                \"data\": {\r\n                    \"type\": \"users\",\r\n                    \"id\": \"1\"\r\n                }\r\n            },\r\n            \"activityTypes\": {\r\n                \"data\": [\r\n                    {\r\n                        \"type\": \"activity-types\",\r\n                        \"id\": \"1\"\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/v1/companies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost/api/v1/companies/10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 19:24:22 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"links\": {\n        \"self\": \"http://localhost/api/v1/companies/10\"\n    },\n    \"data\": {\n        \"type\": \"companies\",\n        \"id\": \"10\",\n        \"attributes\": {\n            \"name\": \"Test Company\",\n            \"document_number\": \"12345678\",\n            \"document_type\": \"dni\",\n            \"status\": \"active\",\n            \"createdAt\": \"2024-11-16T19:24:22.000000Z\",\n            \"updatedAt\": \"2024-11-16T19:24:22.000000Z\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/10/user\",\n                    \"self\": \"http://localhost/api/v1/companies/10/relationships/user\"\n                }\n            },\n            \"activityTypes\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/10/activity-types\",\n                    \"self\": \"http://localhost/api/v1/companies/10/relationships/activity-types\"\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost/api/v1/companies/10\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get specific company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/companies/{{company_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get specific company",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/v1/companies/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 19:33:47 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"links\": {\n        \"self\": \"http://localhost/api/v1/companies/1\"\n    },\n    \"data\": {\n        \"type\": \"companies\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"name\": \"Wunsch-Hodkiewicz\",\n            \"document_number\": \"70181598\",\n            \"document_type\": \"dni\",\n            \"status\": \"active\",\n            \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n            \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/1/user\",\n                    \"self\": \"http://localhost/api/v1/companies/1/relationships/user\"\n                }\n            },\n            \"activityTypes\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/1/activity-types\",\n                    \"self\": \"http://localhost/api/v1/companies/1/relationships/activity-types\"\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost/api/v1/companies/1\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List all companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/companies",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[document_number]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[document_type]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[hasActivities]",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost/api/v1/companies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "filter[name]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[document_type]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[status]",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 19:21:32 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": [\n        {\n            \"type\": \"companies\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"Wunsch-Hodkiewicz\",\n                \"document_number\": \"70181598\",\n                \"document_type\": \"dni\",\n                \"status\": \"active\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"user\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/1/user\",\n                        \"self\": \"http://localhost/api/v1/companies/1/relationships/user\"\n                    }\n                },\n                \"activityTypes\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/1/activity-types\",\n                        \"self\": \"http://localhost/api/v1/companies/1/relationships/activity-types\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/companies/1\"\n            }\n        },\n        {\n            \"type\": \"companies\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"name\": \"Kilback PLC\",\n                \"document_number\": \"94539918\",\n                \"document_type\": \"dni\",\n                \"status\": \"active\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"user\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/2/user\",\n                        \"self\": \"http://localhost/api/v1/companies/2/relationships/user\"\n                    }\n                },\n                \"activityTypes\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/2/activity-types\",\n                        \"self\": \"http://localhost/api/v1/companies/2/relationships/activity-types\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/companies/2\"\n            }\n        },\n        {\n            \"type\": \"companies\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"name\": \"Harber-Stiedemann\",\n                \"document_number\": \"98075650\",\n                \"document_type\": \"dni\",\n                \"status\": \"active\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"user\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/3/user\",\n                        \"self\": \"http://localhost/api/v1/companies/3/relationships/user\"\n                    }\n                },\n                \"activityTypes\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/3/activity-types\",\n                        \"self\": \"http://localhost/api/v1/companies/3/relationships/activity-types\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/companies/3\"\n            }\n        },\n        {\n            \"type\": \"companies\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"name\": \"Jakubowski Ltd\",\n                \"document_number\": \"15229620\",\n                \"document_type\": \"dni\",\n                \"status\": \"active\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"user\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/4/user\",\n                        \"self\": \"http://localhost/api/v1/companies/4/relationships/user\"\n                    }\n                },\n                \"activityTypes\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/4/activity-types\",\n                        \"self\": \"http://localhost/api/v1/companies/4/relationships/activity-types\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/companies/4\"\n            }\n        },\n        {\n            \"type\": \"companies\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"name\": \"Jacobs and Sons\",\n                \"document_number\": \"98654930\",\n                \"document_type\": \"dni\",\n                \"status\": \"active\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"user\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/5/user\",\n                        \"self\": \"http://localhost/api/v1/companies/5/relationships/user\"\n                    }\n                },\n                \"activityTypes\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/companies/5/activity-types\",\n                        \"self\": \"http://localhost/api/v1/companies/5/relationships/activity-types\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/companies/5\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update company",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": {\r\n    \"type\": \"companies\",\r\n    \"id\": \"{{company_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"Updated Company Name\",\r\n      \"status\": \"inactive\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/companies/{{company_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update company",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"companies\",\r\n    \"id\": \"1\",\r\n    \"attributes\": {\r\n      \"name\": \"Updated Company Name\",\r\n      \"status\": \"inactive\"\r\n    }\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/v1/companies/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 19:38:39 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"links\": {\n        \"self\": \"http://localhost/api/v1/companies/1\"\n    },\n    \"data\": {\n        \"type\": \"companies\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"name\": \"Updated Company Name\",\n            \"document_number\": \"70181598\",\n            \"document_type\": \"dni\",\n            \"status\": \"inactive\",\n            \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n            \"updatedAt\": \"2024-11-16T19:38:39.000000Z\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/1/user\",\n                    \"self\": \"http://localhost/api/v1/companies/1/relationships/user\"\n                }\n            },\n            \"activityTypes\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/companies/1/activity-types\",\n                    \"self\": \"http://localhost/api/v1/companies/1/relationships/activity-types\"\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost/api/v1/companies/1\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/companies/{{company_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activity Types",
+			"item": [
+				{
+					"name": "Create new activity type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": {\r\n    \"type\": \"activity-types\",\r\n    \"attributes\": {\r\n      \"name\": \"Desarrollo Web\",\r\n      \"description\": \"Servicios de desarrollo web y aplicaciones\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/activity-types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"activity-types"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new activity type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"activity-types\",\r\n    \"attributes\": {\r\n      \"name\": \"Desarrollo Web\",\r\n      \"description\": \"Servicios de desarrollo web y aplicaciones\"\r\n    }\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/v1/activity-types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"v1",
+										"activity-types"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Location",
+									"value": "http://localhost/api/v1/activity-types/6"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 23:10:17 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"links\": {\n        \"self\": \"http://localhost/api/v1/activity-types/6\"\n    },\n    \"data\": {\n        \"type\": \"activity-types\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"Desarrollo Web\",\n            \"description\": \"Servicios de desarrollo web y aplicaciones\",\n            \"createdAt\": \"2024-11-16T23:10:17.000000Z\",\n            \"updatedAt\": \"2024-11-16T23:10:17.000000Z\"\n        },\n        \"relationships\": {\n            \"companies\": {\n                \"links\": {\n                    \"related\": \"http://localhost/api/v1/activity-types/6/companies\",\n                    \"self\": \"http://localhost/api/v1/activity-types/6/relationships/companies\"\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost/api/v1/activity-types/6\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List all activity types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/activity-types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"activity-types"
+							],
+							"query": [
+								{
+									"key": "filter[name]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[description]",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "filter[hasCompanies]",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List all activity types",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/activity-types",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"activity-types"
+									],
+									"query": [
+										{
+											"key": "filter[name]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[description]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[hasCompanies]",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Nov 2024 01:04:14 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": [\n        {\n            \"type\": \"activity-types\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"name\": \"Desarrollo Web\",\n                \"description\": \"Servicios de desarrollo web y aplicaciones\",\n                \"createdAt\": \"2024-11-16T20:44:38.000000Z\",\n                \"updatedAt\": \"2024-11-16T20:44:38.000000Z\"\n            },\n            \"relationships\": {\n                \"companies\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/activity-types/5/companies\",\n                        \"self\": \"http://localhost/api/v1/activity-types/5/relationships/companies\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/activity-types/5\"\n            }\n        },\n        {\n            \"type\": \"activity-types\",\n            \"id\": \"6\",\n            \"attributes\": {\n                \"name\": \"Desarrollo Web\",\n                \"description\": \"Servicios de desarrollo web y aplicaciones\",\n                \"createdAt\": \"2024-11-16T23:10:17.000000Z\",\n                \"updatedAt\": \"2024-11-16T23:10:17.000000Z\"\n            },\n            \"relationships\": {\n                \"companies\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/activity-types/6/companies\",\n                        \"self\": \"http://localhost/api/v1/activity-types/6/relationships/companies\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/activity-types/6\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Associate activities with the company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": [\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"1\"\r\n    },\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"3\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/companies/{{company_id}}/relationships/activity-types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies",
+								"{{company_id}}",
+								"relationships",
+								"activity-types"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Associate activities with the company",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"data\": [\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"1\"\r\n    },\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"3\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/companies/{{company_id}}/relationships/activity-types",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"companies",
+										"{{company_id}}",
+										"relationships",
+										"activity-types"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 23:15:46 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Dissociate activity type from company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": [\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"1\"\r\n    },\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"3\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/companies/{{company_id}}/relationships/activity-types",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"companies",
+								"{{company_id}}",
+								"relationships",
+								"activity-types"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Dissociate activity type from company",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"data\": [\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"1\"\r\n    },\r\n    {\r\n      \"type\": \"activity-types\",\r\n      \"id\": \"3\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/companies/{{company_id}}/relationships/activity-types",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"companies",
+										"{{company_id}}",
+										"relationships",
+										"activity-types"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Nov 2024 00:13:58 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Role Request",
+			"item": [
+				{
+					"name": "Create new role change request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"role_request_id\", pm.response.json().data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/role-requests",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"role-requests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new role change request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/role-requests",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"role-requests"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 22:33:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"status\": \"pending\",\n        \"updated_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"created_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"id\": 19\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Process role change request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"role-requests",
+								"{{role_request_id}}",
+								"process"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Process role change request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"role-requests",
+										"{{role_request_id}}",
+										"process"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 22:36:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 20,\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"status\": \"approved\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"admin_notes\": \"Documentación verificada correctamente\",\n        \"processed_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"processed_by\": 1,\n        \"created_at\": \"2024-11-16T22:36:04.000000Z\",\n        \"updated_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Dr. Dave Kling V\",\n            \"last_name\": \"Doyle\",\n            \"email\": \"dkuvalis@example.net\",\n            \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"is_active\": true,\n            \"created_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"updated_at\": \"2024-11-14T00:27:49.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Currency Operations",
+			"item": [
+				{
+					"name": "Convert currency",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"from\": \"EUR\",\r\n  \"to\": \"USD\",\r\n  \"amount\": 100.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/currency/convert",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"currency",
+								"convert"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Convert currency",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"from\": \"EUR\",\r\n  \"to\": \"USD\",\r\n  \"amount\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/currency/convert",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"currency",
+										"convert"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 23:23:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"amount\": 100,\n        \"converted_amount\": 105.4463,\n        \"rate\": 1.054463,\n        \"from\": \"EUR\",\n        \"to\": \"USD\",\n        \"cached\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get conversion history",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/currency/history?currency=USD&from_date=2024-08-01&to_date=2024-12-31",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"currency",
+								"history"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								},
+								{
+									"key": "from_date",
+									"value": "2024-08-01"
+								},
+								{
+									"key": "to_date",
+									"value": "2024-12-31"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get conversion history",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/currency/history?currency=USD&from_date=2024-08-01&to_date=2024-12-31",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"currency",
+										"history"
+									],
+									"query": [
+										{
+											"key": "currency",
+											"value": "USD"
+										},
+										{
+											"key": "from_date",
+											"value": "2024-08-01"
+										},
+										{
+											"key": "to_date",
+											"value": "2024-12-31"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 23:47:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2281,\n            \"rate_date\": \"2024-08-01T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.07890000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2251,\n            \"rate_date\": \"2024-08-02T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08350000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2221,\n            \"rate_date\": \"2024-08-05T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09660000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2191,\n            \"rate_date\": \"2024-08-06T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09150000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2161,\n            \"rate_date\": \"2024-08-07T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09220000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2131,\n            \"rate_date\": \"2024-08-08T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09300000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2101,\n            \"rate_date\": \"2024-08-09T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09170000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2071,\n            \"rate_date\": \"2024-08-12T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09250000\",\n            \"created_at\": \"2024-11-16T23:28:44.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:44.000000Z\"\n        },\n        {\n            \"id\": 2041,\n            \"rate_date\": \"2024-08-13T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09310000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 2011,\n            \"rate_date\": \"2024-08-14T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10190000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1981,\n            \"rate_date\": \"2024-08-15T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10110000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1951,\n            \"rate_date\": \"2024-08-16T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09940000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1921,\n            \"rate_date\": \"2024-08-19T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10410000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1891,\n            \"rate_date\": \"2024-08-20T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10840000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1861,\n            \"rate_date\": \"2024-08-21T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11160000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1831,\n            \"rate_date\": \"2024-08-22T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11350000\",\n            \"created_at\": \"2024-11-16T23:28:43.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:43.000000Z\"\n        },\n        {\n            \"id\": 1801,\n            \"rate_date\": \"2024-08-23T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11210000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1771,\n            \"rate_date\": \"2024-08-26T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11630000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1741,\n            \"rate_date\": \"2024-08-27T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11620000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1711,\n            \"rate_date\": \"2024-08-28T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11170000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1681,\n            \"rate_date\": \"2024-08-29T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10880000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1651,\n            \"rate_date\": \"2024-08-30T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10870000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1621,\n            \"rate_date\": \"2024-09-02T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10610000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1591,\n            \"rate_date\": \"2024-09-03T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10350000\",\n            \"created_at\": \"2024-11-16T23:28:42.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:42.000000Z\"\n        },\n        {\n            \"id\": 1561,\n            \"rate_date\": \"2024-09-04T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10500000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1531,\n            \"rate_date\": \"2024-09-05T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10970000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1501,\n            \"rate_date\": \"2024-09-06T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11030000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1471,\n            \"rate_date\": \"2024-09-09T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10430000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1441,\n            \"rate_date\": \"2024-09-10T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10310000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1411,\n            \"rate_date\": \"2024-09-11T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10430000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1381,\n            \"rate_date\": \"2024-09-12T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10160000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1351,\n            \"rate_date\": \"2024-09-13T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10810000\",\n            \"created_at\": \"2024-11-16T23:28:41.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:41.000000Z\"\n        },\n        {\n            \"id\": 1321,\n            \"rate_date\": \"2024-09-16T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11260000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1291,\n            \"rate_date\": \"2024-09-17T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11390000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1261,\n            \"rate_date\": \"2024-09-18T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11240000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1231,\n            \"rate_date\": \"2024-09-19T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11560000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1201,\n            \"rate_date\": \"2024-09-20T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11660000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1171,\n            \"rate_date\": \"2024-09-23T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11190000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1141,\n            \"rate_date\": \"2024-09-24T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11330000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1111,\n            \"rate_date\": \"2024-09-25T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11940000\",\n            \"created_at\": \"2024-11-16T23:28:40.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:40.000000Z\"\n        },\n        {\n            \"id\": 1081,\n            \"rate_date\": \"2024-09-26T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11550000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 1051,\n            \"rate_date\": \"2024-09-27T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11580000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 1021,\n            \"rate_date\": \"2024-09-30T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.11960000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 991,\n            \"rate_date\": \"2024-10-01T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10860000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 961,\n            \"rate_date\": \"2024-10-02T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10710000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 931,\n            \"rate_date\": \"2024-10-03T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10390000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 901,\n            \"rate_date\": \"2024-10-04T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.10290000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 871,\n            \"rate_date\": \"2024-10-07T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09820000\",\n            \"created_at\": \"2024-11-16T23:28:39.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:39.000000Z\"\n        },\n        {\n            \"id\": 841,\n            \"rate_date\": \"2024-10-08T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09820000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 811,\n            \"rate_date\": \"2024-10-09T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09570000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 781,\n            \"rate_date\": \"2024-10-10T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09320000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 751,\n            \"rate_date\": \"2024-10-11T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09380000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 721,\n            \"rate_date\": \"2024-10-14T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09150000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 691,\n            \"rate_date\": \"2024-10-15T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09030000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 661,\n            \"rate_date\": \"2024-10-16T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08970000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 631,\n            \"rate_date\": \"2024-10-17T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08660000\",\n            \"created_at\": \"2024-11-16T23:28:38.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:38.000000Z\"\n        },\n        {\n            \"id\": 601,\n            \"rate_date\": \"2024-10-18T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08470000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 571,\n            \"rate_date\": \"2024-10-21T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08530000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 541,\n            \"rate_date\": \"2024-10-22T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08210000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 511,\n            \"rate_date\": \"2024-10-23T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.07670000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 481,\n            \"rate_date\": \"2024-10-24T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08010000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 451,\n            \"rate_date\": \"2024-10-25T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08250000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 421,\n            \"rate_date\": \"2024-10-28T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08180000\",\n            \"created_at\": \"2024-11-16T23:28:37.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:37.000000Z\"\n        },\n        {\n            \"id\": 391,\n            \"rate_date\": \"2024-10-29T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.07740000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 361,\n            \"rate_date\": \"2024-10-30T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08150000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 331,\n            \"rate_date\": \"2024-10-31T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08820000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 301,\n            \"rate_date\": \"2024-11-01T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08850000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 271,\n            \"rate_date\": \"2024-11-04T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.09040000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 241,\n            \"rate_date\": \"2024-11-05T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.08970000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 211,\n            \"rate_date\": \"2024-11-06T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.06950000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 181,\n            \"rate_date\": \"2024-11-07T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.07850000\",\n            \"created_at\": \"2024-11-16T23:28:36.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:36.000000Z\"\n        },\n        {\n            \"id\": 151,\n            \"rate_date\": \"2024-11-08T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.07720000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        },\n        {\n            \"id\": 121,\n            \"rate_date\": \"2024-11-11T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.06510000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        },\n        {\n            \"id\": 91,\n            \"rate_date\": \"2024-11-12T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.06170000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        },\n        {\n            \"id\": 61,\n            \"rate_date\": \"2024-11-13T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.06290000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        },\n        {\n            \"id\": 31,\n            \"rate_date\": \"2024-11-14T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.05330000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"rate_date\": \"2024-11-15T00:00:00.000000Z\",\n            \"currency\": \"USD\",\n            \"rate\": \"1.05830000\",\n            \"created_at\": \"2024-11-16T23:28:35.000000Z\",\n            \"updated_at\": \"2024-11-16T23:28:35.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "company_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "role_request_id",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
