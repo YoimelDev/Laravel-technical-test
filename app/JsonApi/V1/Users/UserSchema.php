@@ -9,11 +9,12 @@ use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
-use LaravelJsonApi\Eloquent\Filters\WhereIn;
+use LaravelJsonApi\Eloquent\Filters\Has;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
+use App\JsonApi\Filters\WhereLike;
 
 class UserSchema extends Schema
 {
@@ -55,8 +56,10 @@ class UserSchema extends Schema
     {
         return [
             WhereIdIn::make($this),
-            WhereIn::make('name'),
-            WhereIn::make('email'),
+            WhereLike::make('name'),
+            WhereLike::make('email'),
+            WhereLike::make('last_name'),
+            Has::make($this, 'company', 'hasCompany'),
         ];
     }
 

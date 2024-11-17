@@ -9,10 +9,12 @@ use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
+use LaravelJsonApi\Eloquent\Filters\Has;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Filters\WhereIn;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;
 use LaravelJsonApi\Eloquent\Schema;
+use App\JsonApi\Filters\WhereLike;
 
 class CompanySchema extends Schema
 {
@@ -53,9 +55,10 @@ class CompanySchema extends Schema
     {
         return [
             WhereIdIn::make($this),
-            WhereIn::make('name'),
-            WhereIn::make('document_number'),
-            WhereIn::make('status'),
+            WhereLike::make('name'),
+            WhereLike::make('document_number'),
+            WhereLike::make('document_type'),
+            Has::make($this, 'activityTypes', 'hasActivities'),
         ];
     }
 
