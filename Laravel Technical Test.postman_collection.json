@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "d1c19681-7e1b-43ba-b98e-49fcfe141c46",
-		"name": "Atrinium API",
-		"description": "Colección de endpoints para la API de Atrinium",
+		"name": "Laravel Technical Test",
+		"description": "Colección de endpoints para la API de Laravel Technical Test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26854332"
 	},
@@ -238,6 +238,252 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"jsonapi\": {\n        \"version\": \"1.0\"\n    },\n    \"data\": [\n        {\n            \"type\": \"users\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"Super\",\n                \"last_name\": \"Admin\",\n                \"email\": \"super@admin.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/1/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/1/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/1/company\",\n                        \"self\": \"http://localhost/api/v1/users/1/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/1\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"name\": \"Dr. Dave Kling V\",\n                \"last_name\": \"Doyle\",\n                \"email\": \"dkuvalis@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/2/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/2/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/2/company\",\n                        \"self\": \"http://localhost/api/v1/users/2/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/2\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"name\": \"Grady Turcotte\",\n                \"last_name\": \"Stanton\",\n                \"email\": \"ohettinger@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/3/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/3/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/3/company\",\n                        \"self\": \"http://localhost/api/v1/users/3/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/3\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"name\": \"Dr. Norene Schneider I\",\n                \"last_name\": \"Lubowitz\",\n                \"email\": \"leatha06@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/4/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/4/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/4/company\",\n                        \"self\": \"http://localhost/api/v1/users/4/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/4\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"name\": \"Felicia Gottlieb\",\n                \"last_name\": \"Robel\",\n                \"email\": \"pfay@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/5/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/5/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/5/company\",\n                        \"self\": \"http://localhost/api/v1/users/5/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/5\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"6\",\n            \"attributes\": {\n                \"name\": \"Armand Toy\",\n                \"last_name\": \"Grant\",\n                \"email\": \"gschoen@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/6/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/6/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/6/company\",\n                        \"self\": \"http://localhost/api/v1/users/6/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/6\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"name\": \"Ms. Noemie Cassin IV\",\n                \"last_name\": \"Jacobs\",\n                \"email\": \"sheila.cummerata@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/7/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/7/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/7/company\",\n                        \"self\": \"http://localhost/api/v1/users/7/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/7\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"8\",\n            \"attributes\": {\n                \"name\": \"Mrs. Anahi Wisoky\",\n                \"last_name\": \"Lebsack\",\n                \"email\": \"evert57@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/8/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/8/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/8/company\",\n                        \"self\": \"http://localhost/api/v1/users/8/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/8\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"9\",\n            \"attributes\": {\n                \"name\": \"Prof. Kallie Simonis II\",\n                \"last_name\": \"Schneider\",\n                \"email\": \"lkrajcik@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/9/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/9/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/9/company\",\n                        \"self\": \"http://localhost/api/v1/users/9/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/9\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"10\",\n            \"attributes\": {\n                \"name\": \"Bettie Lakin\",\n                \"last_name\": \"Hilpert\",\n                \"email\": \"vboehm@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/10/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/10/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/10/company\",\n                        \"self\": \"http://localhost/api/v1/users/10/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/10\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"11\",\n            \"attributes\": {\n                \"name\": \"Alexander Conn\",\n                \"last_name\": \"Rippin\",\n                \"email\": \"stark.norene@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/11/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/11/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/11/company\",\n                        \"self\": \"http://localhost/api/v1/users/11/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/11\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"12\",\n            \"attributes\": {\n                \"name\": \"Wilfrid Aufderhar\",\n                \"last_name\": \"Hahn\",\n                \"email\": \"hermina49@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/12/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/12/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/12/company\",\n                        \"self\": \"http://localhost/api/v1/users/12/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/12\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"13\",\n            \"attributes\": {\n                \"name\": \"Prof. Beaulah Kunde\",\n                \"last_name\": \"Spencer\",\n                \"email\": \"brogahn@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/13/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/13/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/13/company\",\n                        \"self\": \"http://localhost/api/v1/users/13/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/13\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"14\",\n            \"attributes\": {\n                \"name\": \"Madonna Kerluke\",\n                \"last_name\": \"Dickinson\",\n                \"email\": \"meta.boyer@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/14/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/14/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/14/company\",\n                        \"self\": \"http://localhost/api/v1/users/14/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/14\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"15\",\n            \"attributes\": {\n                \"name\": \"Alexie Ziemann\",\n                \"last_name\": \"Hettinger\",\n                \"email\": \"leda.wyman@example.net\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/15/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/15/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/15/company\",\n                        \"self\": \"http://localhost/api/v1/users/15/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/15\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"16\",\n            \"attributes\": {\n                \"name\": \"Aniyah Purdy\",\n                \"last_name\": \"Toy\",\n                \"email\": \"haag.felipe@example.org\",\n                \"is_active\": true,\n                \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n                \"createdAt\": \"2024-11-14T00:27:49.000000Z\",\n                \"updatedAt\": \"2024-11-14T00:27:49.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/16/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/16/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/16/company\",\n                        \"self\": \"http://localhost/api/v1/users/16/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/16\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"17\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-14T03:33:56.000000Z\",\n                \"updatedAt\": \"2024-11-14T03:33:56.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/17/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/17/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/17/company\",\n                        \"self\": \"http://localhost/api/v1/users/17/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/17\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"18\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test-555@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-14T04:27:39.000000Z\",\n                \"updatedAt\": \"2024-11-14T04:27:39.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/18/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/18/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/18/company\",\n                        \"self\": \"http://localhost/api/v1/users/18/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/18\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"19\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test1@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-16T03:33:08.000000Z\",\n                \"updatedAt\": \"2024-11-16T03:33:08.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/19/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/19/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/19/company\",\n                        \"self\": \"http://localhost/api/v1/users/19/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/19\"\n            }\n        },\n        {\n            \"type\": \"users\",\n            \"id\": \"20\",\n            \"attributes\": {\n                \"name\": \"Test User\",\n                \"last_name\": \"Lastname\",\n                \"email\": \"test2@example.com\",\n                \"is_active\": true,\n                \"email_verified_at\": null,\n                \"createdAt\": \"2024-11-16T23:58:42.000000Z\",\n                \"updatedAt\": \"2024-11-16T23:58:42.000000Z\"\n            },\n            \"relationships\": {\n                \"roleChangeRequests\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/20/role-change-requests\",\n                        \"self\": \"http://localhost/api/v1/users/20/relationships/role-change-requests\"\n                    }\n                },\n                \"company\": {\n                    \"links\": {\n                        \"related\": \"http://localhost/api/v1/users/20/company\",\n                        \"self\": \"http://localhost/api/v1/users/20/relationships/company\"\n                    }\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost/api/v1/users/20\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new role change request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"role_request_id\", pm.response.json().data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/role-requests",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"role-requests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create new role change request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/role-requests",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"role-requests"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 22:33:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"status\": \"pending\",\n        \"updated_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"created_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"id\": 19\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Process role change request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"role-requests",
+								"{{role_request_id}}",
+								"process"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Process role change request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"role-requests",
+										"{{role_request_id}}",
+										"process"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Nov 2024 22:36:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 20,\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"status\": \"approved\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"admin_notes\": \"Documentación verificada correctamente\",\n        \"processed_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"processed_by\": 1,\n        \"created_at\": \"2024-11-16T22:36:04.000000Z\",\n        \"updated_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Dr. Dave Kling V\",\n            \"last_name\": \"Doyle\",\n            \"email\": \"dkuvalis@example.net\",\n            \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"is_active\": true,\n            \"created_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"updated_at\": \"2024-11-14T00:27:49.000000Z\"\n        }\n    }\n}"
 						}
 					]
 				}
@@ -1205,257 +1451,6 @@
 							],
 							"cookie": [],
 							"body": null
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Role Request",
-			"item": [
-				{
-					"name": "Create new role change request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"role_request_id\", pm.response.json().data.id);"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/role-requests",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"role-requests"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Create new role change request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"requested_role\": \"business_owner\",\r\n  \"reason\": \"Necesito registrar mi empresa en el sistema\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/role-requests",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"role-requests"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "localhost"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.3.13"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 16 Nov 2024 22:33:55 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"status\": \"pending\",\n        \"updated_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"created_at\": \"2024-11-16T22:33:55.000000Z\",\n        \"id\": 19\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Process role change request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"role-requests",
-								"{{role_request_id}}",
-								"process"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Process role change request",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"status\": \"approved\",\r\n  \"admin_notes\": \"Documentación verificada correctamente\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/role-requests/{{role_request_id}}/process",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"role-requests",
-										"{{role_request_id}}",
-										"process"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "localhost"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.3.13"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 16 Nov 2024 22:36:45 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 20,\n        \"user_id\": 2,\n        \"requested_role\": \"business_owner\",\n        \"status\": \"approved\",\n        \"reason\": \"Necesito registrar mi empresa en el sistema\",\n        \"admin_notes\": \"Documentación verificada correctamente\",\n        \"processed_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"processed_by\": 1,\n        \"created_at\": \"2024-11-16T22:36:04.000000Z\",\n        \"updated_at\": \"2024-11-16T22:36:45.000000Z\",\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"Dr. Dave Kling V\",\n            \"last_name\": \"Doyle\",\n            \"email\": \"dkuvalis@example.net\",\n            \"email_verified_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"is_active\": true,\n            \"created_at\": \"2024-11-14T00:27:49.000000Z\",\n            \"updated_at\": \"2024-11-14T00:27:49.000000Z\"\n        }\n    }\n}"
 						}
 					]
 				}
