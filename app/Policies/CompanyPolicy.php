@@ -49,6 +49,14 @@ class CompanyPolicy
     }
 
     /**
+     * Check if user is admin or company owner
+     */
+    private function canManageActivityTypes(User $user, Company $company): bool
+    {
+        return $user->hasRole('admin') || $company->user_id === $user->id;
+    }
+
+    /**
      * Authorize a user to attach activity types to the company.
      *
      * @param User $user
@@ -61,7 +69,7 @@ class CompanyPolicy
         Company $company,
         LazyRelation $relation
     ): bool {
-        return $user->can('edit activities');
+        return $this->canManageActivityTypes($user, $company);
     }
 
     /**
@@ -77,6 +85,6 @@ class CompanyPolicy
         Company $company,
         LazyRelation $relation
     ): bool {
-        return $user->can('edit activities');
+        return $this->canManageActivityTypes($user, $company);
     }
 }
